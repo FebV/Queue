@@ -12,19 +12,19 @@ html, body {
     height: 100%;
     width: 100%;
     text-align: center;
-    vertical-align: middle;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 #button {
+    box-shadow: 20px 20px 50px lightgray;
     font-family: myFont;
     font-size: 64px;
     text-align: center;
     line-height: 300px;
     border-radius: 999px;
-    bottom: 20%;
-    position: absolute;
-    background-color: rgba(30, 150, 220, 0.6);
+    margin-top: 85%;
+    background-color: rgba(35, 124, 226, 0.6);
     width: 300px;
     height: 300px;
 }
