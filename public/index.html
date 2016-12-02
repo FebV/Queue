@@ -1,0 +1,59 @@
+<html>
+<header>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</header>
+<body>
+    <div id="button">
+        Play!
+    </div>
+<script>
+    var button = document.getElementById('button');
+    var base = 'http://121.250.222.36:3000/';
+    var status = 'init';
+    var num;
+    button.ontouchstart = function(e) {
+        console.log(e.target);
+        e.target.style.backgroundColor = 'rgba(30, 150, 220, 0.9)';
+        sign();
+    }
+    button.ontouchend = function(e) {
+        console.log(e.target);
+        e.target.style.backgroundColor = 'rgba(30, 150, 220, 0.6)';
+    }
+    // button.onclick = sign;
+
+    function sign() {
+        if(status == 'pending' | status == 'ok')
+        {
+            button.style.fontSize = '64px';
+            button.innerHTML = 'wait';
+            setTimeout(function() {
+                button.innerHTML = num;
+                button.style.fontSize = '120px';
+            }, 1000);
+            return;
+        }
+        status = 'pending';
+        button.innerHTML = status;
+
+        var xml = new XMLHttpRequest();
+        xml.open('GET', base+'sign/');
+        xml.send();
+        xml.onload = function() {
+            var res = JSON.parse(xml.responseText);
+            status = 'ok';
+            button.style.fontSize = '120px';
+            num = res.num;
+            button.innerHTML = num;
+        }
+        // fetch(base+'sign/').then(function(response) {
+        //     return response.json();
+        // }).then(function(res) {
+        //    
+        // });
+    }
+
+</script>
+</body>
+</html>
