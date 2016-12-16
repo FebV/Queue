@@ -2,8 +2,10 @@
 Queue Management System on web.  
   
 node.js/express on server  
-material design lite on frontend  
-friendly to QQ browser  
+no external lib on frontend  
+desktop browsers is blocked to sign up(by using touch event)  
+friendly to mobile browsers  
+friendly to QQ browser(and other demostic old versions browsers)  
 
 ## build  
 npm install  
